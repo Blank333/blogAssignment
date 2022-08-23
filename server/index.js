@@ -7,13 +7,14 @@ import blogRoutes from './routes/blogs.js';
 
 const app = express();
 
-app.use("/blogs", blogRoutes);   
 
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
-const CONNECTION_URL = "mongodb://localhost";
+app.use("/blogs", blogRoutes);   
+
+const CONNECTION_URL = "mongodb://localhost/blogs";
 const PORT = process.env.PORT || 3333;
 
 mongoose.connect(CONNECTION_URL, {useNewUrlParser: true, useUnifiedTopology: true })

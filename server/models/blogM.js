@@ -5,7 +5,7 @@ const blogSchema = mongoose.Schema({
     body: String,
     cDate: {type: Date, default: new Date()},
     uDate: {type: Date, default: new Date()},
-    // _id (uuid v4),
+    reviews: [{ body: String, date: Date }],
     reviewCount: {type: Number, default: 0}
 });
 
