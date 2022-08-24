@@ -25,7 +25,7 @@ export default function Form() {
                     </div>
                     <div className="mb-3">
                         <label htmlFor="body" className="form-label">Body</label>
-                        <textarea rows={10} name="body" label="Body" className="form-control" id="title" onChange={(e) => setBlogData({...blogData, body: e.target.value})}/>
+                        <textarea rows={10} name="body" label="Body" className="form-control" id="body" value = {blogData.body} onChange={(e) => setBlogData({...blogData, body: e.target.value})}/>
                     </div>
                     <button type="submit" className="btn btn-primary">Submit</button>
                 </form>

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { applyMiddleware, compose, legacy_createStore } from 'redux';
 import thunk from 'redux-thunk';
-import reducers from './reducers';
+import { reducers } from './reducers';
 
 import App from './App';
 

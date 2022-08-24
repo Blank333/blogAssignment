@@ -1,5 +1,5 @@
 export default function reducer(blogs = [], action) {
-    switch (action) {
+    switch (action.type) {
         case 'FETCH_ALL':
             return action.payload;
         case 'CREATE':

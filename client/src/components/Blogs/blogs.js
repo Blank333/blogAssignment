@@ -6,10 +6,16 @@ export default function Blogs() {
     const blogs = useSelector((state) => state.blogs);
     
     return (
-            <div>
-                Blogs
-                <Blog />
-                <Blog />
-            </div>
+            !blogs.length ? <h3>Blogs coming soon...</h3> : (
+                <div className="container">
+                    <div className="row">
+                        {blogs.map((blog) => (
+                            <div className="col" key={blogs._id}>
+                               <Blog blog = {blog}/>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            )
     )
 }

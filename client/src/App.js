@@ -1,14 +1,17 @@
 import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+
 import Navbar from "./components/navbar.js";
 import Blogs from "./components/Blogs/blogs.js";
-import { useDispatch } from "react-redux";
-import { getBlogs } from './actions/blogs'
 import Form from "./components/form.js";
+import { getBlogs } from './actions/blogs'
 
 export default function App() {
     const dispatch = useDispatch();
 
-    useEffect (() => {dispatch(getBlogs)}, [dispatch]);
+    useEffect (() => {
+        dispatch(getBlogs())
+    }, [dispatch] );
 
     return (
         <div className="container">

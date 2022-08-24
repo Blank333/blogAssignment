@@ -1,11 +1,11 @@
 import React from "react";
 
-export default function Blog() {
+export default function Blog({blog}) {
     return (
             <div>
-                <div className="row">
-                    <div className="col">
-                        Blog
+                <div className="">
+                    <div className="">
+                        hi{blog.title}
                     </div>
                 </div>
             </div>
