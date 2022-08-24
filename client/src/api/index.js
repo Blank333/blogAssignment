@@ -4,3 +4,5 @@ const url = "http://localhost:3333/blogs";
 
 export const fetchBlogs = () => axios.get(url);
 export const createBlog = (newBlog) => axios.post(url, newBlog);
+export const updateBlog = (id, updatedBlog) => axios.patch(`${url}/${id}`, updatedBlog);
+export const deleteBlog = (id) => axios.delete(`${url}/${id}`);

@@ -1,31 +1,45 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { createBlog } from "../actions/blogs";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { createBlog, updateBlog } from "../actions/blogs";
 
-export default function Form() {
+export default function Form({currentId, setCurrentId}) {
     const [blogData, setBlogData] = useState({
         title: "",
         body: "",
     });
-
+    const blog = useSelector((state) => currentId ? state.blogs.find((b) => b._id === currentId) : null);
     const dispatch = useDispatch();
+
+    useEffect(() =>{
+        if(blog) setBlogData(blog);
+    }, [blog]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(createBlog(blogData));
+
+        if(currentId){
+            dispatch(updateBlog(currentId, blogData));
+        }
+        else{
+            dispatch(createBlog(blogData));
+        }
+        setCurrentId(null);
+        setBlogData({title: "",body: "",});
+
+        
     }
     
     return (
             <div>
                 <form autoCapitalize="off" noValidate onSubmit={handleSubmit}>
-                    <h6>Create Blog Post</h6>
+                    <h6>{!currentId ? 'Create' : 'Edit'} Blog Post</h6>
                     <div className="mb-3">
                         <label htmlFor="title" className="form-label">Title</label>
                         <input type="text" name="title" label="Title" className="form-control" id="title" value = {blogData.title} onChange={(e) => setBlogData({...blogData, title: e.target.value})}/>
                     </div>
                     <div className="mb-3">
                         <label htmlFor="body" className="form-label">Body</label>
-                        <textarea rows={10} name="body" label="Body" className="form-control" id="body" value = {blogData.body} onChange={(e) => setBlogData({...blogData, body: e.target.value})}/>
+                        <textarea rows={5} name="body" label="Body" className="form-control" id="body" value = {blogData.body} onChange={(e) => setBlogData({...blogData, body: e.target.value})}/>
                     </div>
                     <button type="submit" className="btn btn-primary">Submit</button>
                 </form>

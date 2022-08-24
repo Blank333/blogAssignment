@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 
 import Navbar from "./components/navbar.js";
@@ -7,21 +7,24 @@ import Form from "./components/form.js";
 import { getBlogs } from './actions/blogs'
 
 export default function App() {
+    const [currentId, setCurrentId] = useState(null);
+    const [showForm, setShowForm] = useState(false);
     const dispatch = useDispatch();
 
     useEffect (() => {
         dispatch(getBlogs())
-    }, [dispatch] );
+    }, [currentId, dispatch] );
 
     return (
         <div className="container">
-            <Navbar/>
-            <div className="container text-center">
-                    <Blogs/>
+            <Navbar showForm = {showForm} setShowForm = {setShowForm}/>
+            <div className= {!showForm ? 'visually-hidden container m-2' : ''}>
+                <Form currentId = {currentId} setCurrentId = {setCurrentId}/> 
             </div>
             <div className="container">
-                <Form />
+                    <Blogs setCurrentId = {setCurrentId}/>
             </div>
+            
         </div>
     )
 }
