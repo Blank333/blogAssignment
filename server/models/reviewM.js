@@ -5,6 +5,7 @@ const reviewSchema = mongoose.Schema({
     description: String,
     cDate: {type: Date, default: new Date()},
     uDate: {type: Date, default: new Date()},
+    blog_id: String
 });
 
 const ReviewM = mongoose.model("Reviews", reviewSchema);

@@ -3,6 +3,7 @@ import moment from "moment";
 import { useDispatch } from 'react-redux';
 import { deleteBlog } from "../../../actions/blogs";
 import './blog.css';
+
 export default function Blog({blog, setCurrentId}) {
     const dispatch = useDispatch();
 

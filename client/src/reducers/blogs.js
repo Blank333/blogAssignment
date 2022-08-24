@@ -8,6 +8,11 @@ export default function reducer(blogs = [], action) {
             return action.payload.reverse();
         case 'CREATE':
             return  [action.payload, ...blogs];
+
+        case 'FETCH_ALL_R':
+            return action.payload.reverse();
+        case 'CREATE_R':
+            return  [action.payload, ...blogs];
         default:
             return blogs;
     }
