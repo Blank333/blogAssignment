@@ -30,9 +30,9 @@ export default function Form({currentId, setCurrentId}) {
     }
     
     return (
-            <div>
-                <form autoCapitalize="off" noValidate onSubmit={handleSubmit}>
-                    <h6>{!currentId ? 'Create' : 'Edit'} Blog Post</h6>
+            <div className="bg-white p-2 rounded-2">
+                <form autoCapitalize="off" noValidate onSubmit={handleSubmit} className="bg-light p-2 m-2 ">
+                    <h5>{!currentId ? 'Create' : 'Edit'} Blog Post</h5>
                     <div className="mb-3">
                         <label htmlFor="title" className="form-label">Title</label>
                         <input type="text" name="title" label="Title" className="form-control" id="title" value = {blogData.title} onChange={(e) => setBlogData({...blogData, title: e.target.value})}/>

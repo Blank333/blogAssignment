@@ -2,7 +2,7 @@ import React from "react";
 import moment from "moment";
 import { useDispatch } from 'react-redux';
 import { deleteBlog } from "../../../actions/blogs";
-
+import './blog.css';
 export default function Blog({blog, setCurrentId}) {
     const dispatch = useDispatch();
 
@@ -12,7 +12,7 @@ export default function Blog({blog, setCurrentId}) {
 
     return (
             <div>
-                <div className="card">
+                <div className="rounded-2 card blog">
                     <div className="position-absolute d-flex justify-content-end text-secondary">
                         <button className="btn btn-link navbar-brand pt-1 px-0 mx-2" 
                                 onClick={() => setCurrentId(blog._id)}>
@@ -25,7 +25,7 @@ export default function Blog({blog, setCurrentId}) {
                     </div>
 
                     <div className="card-body text-center">
-                        <h5 className="card-title text-dark">{blog.title}</h5>
+                        <h4 className="card-title text-dark pb-2">{blog.title}</h4>
                         <p className="card-text">{blog.body}</p>
                     </div>
                     
