@@ -1,4 +1,14 @@
-# Getting Started with Create React App
+This is a Next.js project bootstrapped with create-next-app.
+#Getting Started
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Install Dependencies with:
 
+`npm install`
+
+for both the client and the server
+
+Then start the server and the client with:
+
+`npm start`
+
+Make sure mongodb is enabled and started
